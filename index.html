@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>로또 번호 생성기</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎯 겹치지 않는 로또 번호 생성기</h1>
-  <button onclick="generateAndShow()">번호 뽑기</button>
-  <div id="result"></div>
-
+  <div class="container">
+    <h1>로또 번호 생성기</h1>
+    <div class="buttons">
+      <button onclick="generate(1)">1조합</button>
+      <button onclick="generate(2)">2조합</button>
+      <button onclick="generate(3)">3조합</button>
+      <button onclick="generate(4)">4조합</button>
+      <button onclick="generate(5)">5조합</button>
+    </div>
+    <div id="results"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
