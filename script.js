@@ -1,10 +1,5 @@
-let lottoData = [];
-
-fetch("lotto_all.json")
-  .then((res) => res.json())
-  .then((data) => {
-    lottoData = data.map(d => d.numbers.map(Number));
-  });
+// 중복 검사 개선
+const lottoStrings = lottoData.map(set => set.slice().sort((a, b) => a - b).join(","));
 
 function generate(count) {
   const resultsDiv = document.getElementById("results");
@@ -20,8 +15,10 @@ function generate(count) {
     }
     numbers.sort((a, b) => a - b);
 
-    const isDuplicate = lottoData.some(w => w.every(n => numbers.includes(n)));
-    if (!isDuplicate) generated.push(numbers);
+    const numberString = numbers.join(",");
+    if (!lottoStrings.includes(numberString)) {
+      generated.push(numbers);
+    }
   }
 
   generated.forEach((set, i) => {
