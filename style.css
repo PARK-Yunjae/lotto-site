@@ -5,23 +5,18 @@ body {
 }
 
 button {
-  padding: 10px 20px;
   font-size: 18px;
+  padding: 10px 20px;
   cursor: pointer;
-}
-
-.numbers {
-  margin-top: 20px;
 }
 
 .ball {
   display: inline-block;
-  background: #ffcc00;
+  background: gold;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  margin: 5px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
   font-weight: bold;
-  font-size: 18px;
+  margin: 5px;
 }
