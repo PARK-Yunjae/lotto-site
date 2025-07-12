@@ -1,5 +1,10 @@
-// 중복 검사 개선
-const lottoStrings = lottoData.map(set => set.slice().sort((a, b) => a - b).join(","));
+let lottoData = [];
+
+fetch("lotto_all.json")
+  .then((res) => res.json())
+  .then((data) => {
+    lottoData = data.map(d => d.numbers.map(Number));
+  });
 
 function generate(count) {
   const resultsDiv = document.getElementById("results");
@@ -15,10 +20,8 @@ function generate(count) {
     }
     numbers.sort((a, b) => a - b);
 
-    const numberString = numbers.join(",");
-    if (!lottoStrings.includes(numberString)) {
-      generated.push(numbers);
-    }
+    const isDuplicate = lottoData.some(w => w.every(n => numbers.includes(n)));
+    if (!isDuplicate) generated.push(numbers);
   }
 
   generated.forEach((set, i) => {
